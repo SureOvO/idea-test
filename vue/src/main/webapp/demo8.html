@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>v-text与v-html在v-bind上的使用</title>
+		<script src="js/vuejs-2.5.16.js"></script>
+	</head>
+
+	<body>
+		<div id="app">
+			<font size="5" v-bind:color="co1">传智播客</font>
+			<font size="10" :color="co2">黑马程序员</font>
+		</div>
+	</body>
+	<script>
+		//view model
+		new Vue({
+			el:"#app",
+			data:{
+			    co1:"red",
+			    co2:"pink"
+			}
+		});
+	</script>
+
+</html>

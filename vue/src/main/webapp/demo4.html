@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>v-on:mouseover</title>
+		<style>
+			#div {
+				background-color: red;
+				width: 300px;
+				height: 300px;
+			}
+		</style>
+		<script src="js/vuejs-2.5.16.js"></script>
+	</head>
+
+	<body>
+		<div id="app">
+			<div @mouseover="fun1" id="div">
+				<textarea @mouseover.stop="fun2($event)">这是一个文件域</textarea>
+			</div>
+		</div>
+	</body>
+	<script>
+		//view model
+		new Vue({
+			el:"#app",
+			methods:{
+			    fun1:function(){
+			        alert("鼠标停在了div上");
+				},
+				fun2(event){
+			        alert("鼠标停在了textarea上");
+
+                    /*
+                    终止事件在传播过程的捕获、目标处理或起泡阶段进一步传播。
+                    调用该方法后，该节点上处理该事件的处理程序将被调用，事件不再被分派到其他节点
+                     */
+					//event.stopPropagation();
+
+				}
+			}
+		});
+	</script>
+
+</html>
